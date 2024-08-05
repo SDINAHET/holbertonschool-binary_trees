@@ -18,6 +18,11 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	{
 		return (NULL);
 	}
+	if (parent == NULL)
+	{
+		return (NULL);
+	}
+
 
 	/*Initialize the new node*/
 	new_node->n = value;
