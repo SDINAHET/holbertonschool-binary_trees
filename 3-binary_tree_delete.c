@@ -4,3 +4,16 @@
  * @tree: A pointer to the root node of the tree to delete.
  */
 void binary_tree_delete(binary_tree_t *tree)
+{
+    if (tree == NULL)
+        return;
+
+    /*recursively delete the left subtree gauche */
+    binary_tree_delete (tree->left);
+
+    /*recursively delete the right subtree droite */
+    binary_tree_delete (tree->right);
+
+    /*free the current node*/
+    free(tree);
+}
