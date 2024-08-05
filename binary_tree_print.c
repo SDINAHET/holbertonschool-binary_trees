@@ -1,6 +1,4 @@
-#include <stdio.h>
-/* binary_tree_print.c*/
-
+#include <stdio.h> /* binary_tree_print.c*/
 #include "binary_trees.h"
 
 /* Original code from http://stackoverflow.com/a/13755911/5184480 */
