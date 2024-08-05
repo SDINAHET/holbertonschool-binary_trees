@@ -13,10 +13,10 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 	binary_tree_t *new_node;
 
 	/* Check if the parent pointer is NULL */
-    if (parent == NULL)
-    {
-        return (NULL);
-    }
+	if (parent == NULL)
+	{
+		return (NULL);
+	}
 
 	/*Allocate memory for the new node*/
 	new_node = (binary_tree_t *)malloc(sizeof(binary_tree_t));
