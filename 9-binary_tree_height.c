@@ -17,7 +17,8 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	left_height = binary_tree_height(tree->left);
 	right_height = binary_tree_height(tree->right);
 
-	/* The height of the current node is 1 plus the maximum height of its subtrees */
+	/* The height of the current node is 1 plus the maximum height */
+    /*of its subtrees */
 	return (1 + (left_height > right_height ? left_height : right_height));
 	/*l'ecriture précedente représente une forme tarnaire if -else*/
 
