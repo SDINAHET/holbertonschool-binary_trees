@@ -1,0 +1,3 @@
+Inserting the value n: O(logn)
+Removing the node with the value n: O(logn)
+Searching for a node: O(logn)
