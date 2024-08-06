@@ -5,7 +5,7 @@
  * @tree: A pointer to the root node of the tree to traverse.
  * @func: A pointer to a function to call for each node's value.
  *
- * Description: This function performs an in-order traversal of the binary tree.
+ * Description:This function performs an in-order traversal of the binary tree
  *              It visits the left subtree, then the current node, and finally
  *              the right subtree.
  */
