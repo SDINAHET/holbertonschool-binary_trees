@@ -5,9 +5,9 @@
  * @tree: A pointer to the root node of the tree to traverse.
  * @func: A pointer to a function to call for each node's value.
  *
- * Description: The function performs a pre-order traversal of the binary tree.
- *              It visits the current node first, then traverses the left subtree,
- *              and finally traverses the right subtree.
+ * Description: The function performs a pre-order traversal of the binary tree
+ *              It visits the current node first, then traverses
+ *              the left subtree,and finally traverses the right subtree.
  */
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
