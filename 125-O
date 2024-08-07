@@ -1,3 +1,3 @@
-Inserting the value n: O(logn)
-Removing the node with the value n: O(logn)
-Searching for a node: O(logn)
+Best Case: Inserting the value n: O(logn)
+Average Case: Removing the node with the value n: O(logn)
+Worst Case:Searching for a node: O(logn)
