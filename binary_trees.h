@@ -49,5 +49,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /*int is_perfect_recursive(const binary_tree_t *tree, int depth, int level);*/
 size_t binary_tree_depth(const binary_tree_t *tree);
 int is_perfect_recursive(const binary_tree_t *tree, int depth, int level);
+int measure_tree_depth(const binary_tree_t *tree);
+int binary_tree_is_perfect(const binary_tree_t *tree);
 
 #endif /* BINARY_TREES_H */

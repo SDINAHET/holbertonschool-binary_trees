@@ -1,65 +1,64 @@
-
 #include "binary_trees.h"
-#include <stdlib.h>
-/**
- * binary_tree_depth - Measures the depth of a binary tree.
- * @tree: A pointer to the root node of the tree.
- *
- * Return: The depth of the tree.
- */
-size_t binary_tree_depth(const binary_tree_t *tree)
-{
-	size_t depth = 0;
-
-	while (tree->parent)
-	{
-		depth++;
-		tree = tree->parent;
-	}
-	return (depth);
-}
 
 /**
- * is_perfect_recursive - Recursively checks if a binary tree is perfect.
- * @tree: A pointer to the root node of the tree.
- * @depth: The depth of the tree.
- * @level: The current level of the tree.
- *
- * Return: 1 if the tree is perfect, 0 otherwise.
- */
-int is_perfect_recursive(const binary_tree_t *tree, int depth, int level)
-{
-	if (tree == NULL)
-		return (1);
-
-	/* If leaf node */
-	if (tree->left == NULL && tree->right == NULL)
-		return (depth == level);
-
-	/* If internal node with both children */
-	if (tree->left != NULL && tree->right != NULL)
-		return (is_perfect_recursive(tree->left, depth, level + 1) &&
-			is_perfect_recursive(tree->right, depth, level + 1));
-
-	/* If node has only one child */
-	return (0);
-}
-
-/**
- * binary_tree_is_perfect - Checks if a binary tree is perfect.
- * @tree: A pointer to the root node of the tree to check.
- *
- * Return: 1 if the tree is perfect, 0 otherwise.
+ * binary_tree_is_perfect - Checks if a binary tree is perfect
+ * @tree: pointer to the root node of the tree to check
+ * Return: 1 | 0, or 0 if tree is NULL
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int depth;
+	int height, size;
 
-	if (tree == NULL)
+ /* Vérifie si l'arbre est NULL. Si oui, retourne 0 */
+	if (!tree)
 		return (0);
 
-	/* Compute the depth of the leftmost path */
-	depth = binary_tree_depth(tree->left);
+   /* Obtient la hauteur de l'arbre */
+	height = binary_tree_height(tree);
+	/* Obtient la taille de l'arbre (nombre total de nœuds) */
+	size = (int)binary_tree_size(tree);
 
-	return (is_perfect_recursive(tree, depth, 0));
+/* A perfect binary tree of height 'h' has 2exp(h + 1) - 1 node. */
+	return ((1 << (height + 1)) - 1 == size ? 1 : 0);
+}
+
+/**
+ * binary_tree_height - Measures the height of a binary tree
+ * @tree: pointer to the root node of the tree to measure the height
+ * Return: height of the tree, or 0 if tree is NULL
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t left, right;
+
+ /* Si l'arbre est NULL ou si le nœud actuel est une feuille, retourne 0*/
+	if (!tree || (!tree->left && !tree->right))
+		return (0);
+/* Mesure la hauteur du sous-arbre gauche */
+	left = binary_tree_height(tree->left);
+/* Mesure la hauteur du sous-arbre droit */
+	right = binary_tree_height(tree->right);
+	return (left >= right ? left + 1 : right + 1);
+}
+
+/**
+ * binary_tree_size - Measures the size of a binary tree
+ * @tree: pointer to the root node of the tree to measure the size
+ * Return: size of the tree, or 0 if tree is NULL
+ */
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	size_t left, right;
+
+  /* Si l'arbre est NULL, retourne 0 */
+	if (!tree)
+		return (0);
+
+/* Mesure la taille du sous-arbre gauche */
+	left = binary_tree_size(tree->left);
+/* Mesure la taille du sous-arbre droit */
+	right = binary_tree_size(tree->right);
+ /* Retourne la taille totale en ajoutant les tailles */
+ /*des sous-arbres plus 1 pour le nœud actuel */
+	return (left + right + 1);
 }
